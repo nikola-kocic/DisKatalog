@@ -91,6 +91,10 @@ bool createCatalog_helper(const QString& dbPath, const QString& dbname)
 
 bool openCatalog_helper(const QString &dbPath, QTreeWidget* treeView)
 {
+    if(QSqlDatabase::connectionNames().contains(dbPath))
+    {
+        return false;
+    }
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", dbPath);
     db.setDatabaseName(dbPath);

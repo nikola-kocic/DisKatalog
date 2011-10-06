@@ -28,6 +28,7 @@ private:
     QAction *addMediaAct;
     QAction *deleteSelectedAct;
     QAction *testAct;
+    QList<CatalogList> catList;
 
     void createActions();
     void createMenus(QMainWindow* parent);

@@ -157,6 +157,7 @@ void DisKatalog::LVitemDoubleClick(QTreeWidgetItem* item, int column)
 
 bool DisKatalog::openCatalog(const QString &filePath)
 {
+    //If file opening dosn't suceed or file is already opened
     if(openCatalog_helper(filePath, treeView) == false)
     {
         for(int i = 0; i < treeView->topLevelItemCount(); i++)
@@ -245,6 +246,7 @@ bool DisKatalog::createCatalog()
 
     if(createCatalog_helper(filename, dbname) == true)
     {
+        // list add
         QTreeWidgetItem* ntvri = new QTreeWidgetItem(TYPE_CATALOG);
         ntvri->setText(TV_COL_NAME, dbname);
         ntvri->setIcon(TV_COL_NAME, getSystemIcon(ntvri->type()));
@@ -259,8 +261,9 @@ void DisKatalog::openFile()
 {
     QString fileName = QFileDialog::getOpenFileName(this, "Open Catalog", "", tr("sqlite (*.sqlite);; All files (*.*)"));
     if (!fileName.isEmpty())
+    {
         openCatalog(fileName);
-
+    }
 }
 
 void DisKatalog::deleteSelected()

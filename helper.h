@@ -14,6 +14,20 @@ public:
     QString dir_id;
 };
 
+class TypeId
+{
+public:
+    int type;
+    int id;
+};
+
+class CatalogList
+{
+public:
+    QList<TypeId> ti;
+    QString path;
+};
+
 const int TV_COL_NAME = 0;
 const int TV_COL_DBPATH = 1;
 
