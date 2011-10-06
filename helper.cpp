@@ -162,7 +162,7 @@ QList<QTreeWidgetItem*> getTVDirectoryContent(const QString& dbPath, const QStri
         ntvi->setText(TV_COL_NAME, query->value(1).toString());
         ntvi->setIcon(TV_COL_NAME, getSystemIcon(ntvi->type()));
         ntvi->setText(TV_COL_DBPATH, query->value(0).toString());
-        ntvi->addChild(new QTreeWidgetItem());
+        ntvi->addChild(new QTreeWidgetItem(TYPE_DUMMY));
         items << ntvi;
     }
 

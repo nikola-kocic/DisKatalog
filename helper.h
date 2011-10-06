@@ -33,6 +33,7 @@ const int TYPE_DIR = 1002;
 //const int LV_TYPE_ARCHIVE = 1003;
 const int TYPE_MEDIA = 1004;
 const int TYPE_CATALOG = 1005;
+const int TYPE_DUMMY = 1006;
 
 bool execQuery(QSqlQuery* q, const QString& qs);
 bool createCatalog_helper(const QString& filePath, const QString& dbname);

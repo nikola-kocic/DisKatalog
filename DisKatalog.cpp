@@ -121,12 +121,19 @@ void DisKatalog::TVitemExpanded (QTreeWidgetItem * item)
 {
     if(item->childCount() > 0)
     {
-        if(item->child(0)->type() == 0) //TODO (was COLTYPE == "" )
+        if(item->child(0)->type() == TYPE_DUMMY)
         {
             delete item->child(0);
             QList<QTreeWidgetItem*> items;
-            if(item->type() == TYPE_CATALOG) items = getTVCatalogContent(item->text(TV_COL_DBPATH));
-            else items = getTVDirectoryContent(gettvri(item)->text(TV_COL_DBPATH), item->text(TV_COL_DBPATH));
+            if(item->type() == TYPE_CATALOG)
+            {
+                items = getTVCatalogContent(item->text(TV_COL_DBPATH));
+            }
+            else
+            {
+                items = getTVDirectoryContent(gettvri(item)->text(TV_COL_DBPATH), item->text(TV_COL_DBPATH));
+            }
+
             item->addChildren(items);
         }
     }
